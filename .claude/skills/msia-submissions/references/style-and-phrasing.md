@@ -56,7 +56,23 @@ Lead into it with an underlined label on its own line: **<u>Authority</u>:** (on
 - Use a table for side-by-side comparison (parties, causes of action, subject matter, reliefs, forum).
 - End every argument section with a one-sentence conclusion tied to the limb of the test.
 
+## Placeholders and drafting notes
+
+- Unknown Enclosure, Tab or page: `[Enclosure ==XX==]`, `[Tab ==_== of PBOA, E==_/_==]`. Highlighted yellow, never left plain.
+- A fact still to be verified: highlight the whole sentence and add a Word comment saying what must be checked and where (e.g. "check minutes of CM on 11.9.2026"). Caroline gives her team instructions this way.
+
 ## Phrase bank (from Caroline's filed submissions)
+
+- "With respect, the aforesaid are **not genuine triable issues but mere assertions which <u>do not displace the material and undisputed facts</u>**."
+- "None of the Defendant's contentions … alter this fundamental fact."
+- "… is a **<u>bare and self-serving allegation</u>** devoid of any evidential or legal foundation …"
+- "The Defendant has failed to confront the Plaintiffs' primary case — …"
+- "… remaining conspicuously silent on the central act complained of, namely …"
+- "In any event, the Defendant has failed to adduce any case authority to support its contention …"
+- "Without derogating from the aforesaid, … Hence, <u>the Defendant's argument is premature</u>."
+- "Far from being indolent, the JD acted within 19 days …"
+- "… cannot fairly be characterised as inactivity or acquiescence …"
+- "More fundamentally, …"
 
 - "We respectfully submit that the said Application by D1 is wholly misconceived and without any basis in law or fact and ought to be dismissed *in limine*, amongst others, based on the following grounds:"
 - "It bears emphasis that D1's attempt to … conflates two fundamentally distinct and independent legal questions:"

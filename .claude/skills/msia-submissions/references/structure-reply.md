@@ -37,6 +37,27 @@ Pick the pattern that fits:
 
 ### [PARTY]'S SUBMISSIONS IN REPLY
 
+Pick one of two formats and use it for the whole reply.
+
+**Format 1: rebuttal by heading.** Use when their submissions argue under headings of their own (the E16 and arbitration-stay replies). Rules below.
+
+**Format 2: issue-list reply.** Use when their submissions frame numbered "issues" or "triable issues", or have no usable paragraph numbering (the summary judgment and bankruptcy replies).
+
+1. After the introduction: "For the sake of brevity, we do not propose to address each and every contention in detail but shall confine our reply to the following issues raised by the JC, which is the central contention of the JC's Submissions:-". Then list *their* issues as "Whether …" questions, (a)-(j), each with its pinpoint. Group them under bold-italic labels (***Issues in respect of the said BN***, ***Issues in respect of the CP***). End with: "We will deal with each of the aforesaid issues accordingly as follows."
+   - Summary judgment variant: put the list in the CRUX ("The Defendant, amongst others, has raised six (6) alleged triable issues which may be summarised as follows:" (i)-(vi)), then "at no juncture does the Defendant address, let alone justify, [the admitted act]".
+2. Give each issue a heading in ***<u>bold italic underlined</u>*** that repeats the question ("*Whether the Writ, SOC and JID had been duly served on the JD*"), with the pinpoint on the line beneath. Answer related issues under one heading: "**Alleged Triable Issue (i) & (iv): …**".
+3. Open each issue: "In respect of the issue of whether … [refer …], we [reiterate paragraphs x to y of the JD's Submissions [refer to E46/…] and] humbly submit that … for the following reasons:-".
+4. Respond to their "brief facts" in one paragraph: "any facts that are inconsistent or contradict the facts set out in the Plaintiffs' Submissions and/or the Plaintiffs' pleaded case and evidence are denied". Add one paragraph only if their facts, taken at their highest, are no defence.
+5. Where their submissions have no paragraph numbers, say how you will cite them: "As the JC's Submissions in Enclosure 43 lacks conventional paragraphing, … we will make reference to the JC's Submissions by the paragraph number(s) followed by the page number(s) i.e. para 2 at E43/2."
+
+**Rules for both formats:**
+
+- Do **not** re-quote a passage already quoted in our main submissions. Cite our paragraph and E-page ("as submitted at paragraph 16 of the Plaintiffs' Submissions [refer to E19/17]"). Quote it again only if their argument turns on the exact words.
+- Answers that recur in their submissions ("the Defendant has failed to adduce any case authority to support its contention"; "the argument is premature as damages are assessed after liability") are made once in full and cross-referred afterwards.
+- Turn their own authority against them where it supports us: "it was held in … referred to by the Defendant that **it is the Defendant**, and not the Plaintiffs as alleged, who **bears the burden** …".
+
+**Format 1 rules:**
+
 - Sub-headings follow **the other side's headings and order**, re-labelled from our side: "THE ALLEGED LEGAL FRAMEWORK", "THE ALLEGED SUBJECT MATTER OF THE DISPUTE", "NO OVERLAP OF WITNESSES AND DOCUMENTS".
 - Where they cite the governing law first, open with a legal-position section: "While the Plaintiff does not dispute the principles under ***<u>[rule]</u>*** or ***<u>[case]</u>*** cited in paragraphs 11 to 13 of D1's Submissions [*refer to **E26/5-6***], it is submitted that they do not assist D1's case …"
 - **Paragraph pattern:** "D1 in paragraphs [x] of D1's Submissions [*refer to **E26/…***] alleged that "*[their words]*". We reiterate paragraphs [y] of the Plaintiff's Submissions [*refer to **E25/…***] and submit that such allegations are misconceived and do not assist D1's case [for the following reasons:-]".
@@ -46,6 +67,7 @@ Pick the pattern that fits:
 
 ### CONCLUSION
 
+- Where several issues were answered, summarise in a "we maintain that:-" list (a)-(d), one line per issue, using "Further and alternatively, even if …" for the fallback.
 - "Based on the aforesaid reasons and the Plaintiff's Submissions, it is submitted that D1 has failed to demonstrate any valid grounds that justify the granting of … by this Honourable Court."
 - Respondent: "Wherefore, we respectfully pray that the said Application be dismissed with costs to be paid by D1 to the Plaintiff."
 - Applicant: "On the contrary, the Defendants had sufficiently proven that … Accordingly, this Honourable Court ought to … Wherefore, we humbly pray for order in terms of the said Application via Enclosure 7."

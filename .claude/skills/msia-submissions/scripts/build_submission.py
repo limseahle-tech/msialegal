@@ -28,6 +28,9 @@ Use ' | ' to split a value into several lines.
     signatory:  Solicitors for the Plaintiff | Messrs Lum Kok Kiong & Co
     filed_by:   This **PLAINTIFF'S SUBMISSIONS IN REPLY** *(in opposing Enclosure 16)* is filed by ...
     contact:    [Tel: 03-6420 7841] [Fax: 03-6420 7842] | [Email: ...] [Ref.: ...]
+    opening:    (optional) replaces "May it please this Honourable Court," e.g.
+                *Dengan Izin Mahkamah yang Mulia ini,* | Kami memohon kebenaran untuk berhujah dalam Bahasa Inggeris.
+    sublevel:   (optional) letter (default: 1. -> (a) -> (i)) or decimal (1. -> 1.1 -> (a))
 
 Body (after the front matter), one paragraph per line:
 
@@ -42,7 +45,7 @@ Body (after the front matter), one paragraph per line:
     | a | b |                 table row (first row bold; |---| rows ignored)
     \\toc                     table of contents field (update in Word: F9)
 
-Inline: **bold**  *italic*  __underline__  ^st^ superscript
+Inline: **bold**  *italic*  __underline__  ^st^ superscript  ==XX== yellow highlight (placeholders)
         [[Case Name [2016] 5 MLJ 417 (FC)]]  -> bold + italic + underline
 """
 import argparse
@@ -51,7 +54,7 @@ import sys
 
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_COLOR_INDEX
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt
@@ -61,7 +64,7 @@ SIZE = Pt(12)
 HANG = Inches(0.5)
 NUM_ID = 901  # high id to avoid clashing with template numbering
 
-INLINE = re.compile(r"(\[\[.*?\]\](?!\])|\*\*|__|\*|\^[^^\s]+\^)")
+INLINE = re.compile(r"(\[\[.*?\]\](?!\])|==.+?==|\*\*|__|\*|\^[^^\s]+\^)")
 
 
 # ---------------------------------------------------------------- inline
@@ -78,6 +81,9 @@ def add_runs(par, text, bold=False, italic=False, underline=False):
             state["u"] = not state["u"]
         elif tok.startswith("[[") and tok.endswith("]]"):
             _run(par, tok[2:-2], True, True, True)
+        elif tok.startswith("==") and tok.endswith("==") and len(tok) > 4:
+            r = _run(par, tok[2:-2], state["b"], state["i"], state["u"])
+            r.font.highlight_color = WD_COLOR_INDEX.YELLOW
         elif tok.startswith("^") and tok.endswith("^") and len(tok) > 2:
             r = _run(par, tok[1:-1], state["b"], state["i"], state["u"])
             r.font.superscript = True
@@ -146,14 +152,17 @@ def setup_styles(doc):
         s.top_margin = s.bottom_margin = Inches(1)
 
 
-def setup_numbering(doc):
+def setup_numbering(doc, sublevel="letter"):
     numbering = doc.part.numbering_part.element
     absn = OxmlElement("w:abstractNum")
     absn.set(qn("w:abstractNumId"), str(NUM_ID))
     mlt = OxmlElement("w:multiLevelType")
     mlt.set(qn("w:val"), "multilevel")
     absn.append(mlt)
-    levels = [("decimal", "%1."), ("lowerLetter", "(%2)"), ("lowerRoman", "(%3)")]
+    if sublevel == "decimal":
+        levels = [("decimal", "%1."), ("decimal", "%1.%2"), ("lowerLetter", "(%3)")]
+    else:
+        levels = [("decimal", "%1."), ("lowerLetter", "(%2)"), ("lowerRoman", "(%3)")]
     for ilvl, (nfmt, text) in enumerate(levels):
         lvl = OxmlElement("w:lvl")
         lvl.set(qn("w:ilvl"), str(ilvl))
@@ -297,7 +306,8 @@ def front(doc, m):
         if m.get("subtitle"):
             add_runs(fmt(doc.add_paragraph(), False, WD_ALIGN_PARAGRAPH.CENTER), m["subtitle"], italic=True)
         blank(doc)
-    add_runs(fmt(doc.add_paragraph(), False), "May it please this Honourable Court,")
+    for line in split(m.get("opening", "May it please this Honourable Court,")):
+        add_runs(fmt(doc.add_paragraph(), False), line)
     blank(doc)
 
 
@@ -409,9 +419,9 @@ def body(doc, lines):
         elif re.match(r"^\d+\.\s", stripped) and indent < 3:
             numbered(doc, re.sub(r"^\d+\.\s+", "", stripped), 0)
             blank(doc)
-        elif re.match(r"^(\([a-z]{1,4}\)|[a-z]{1,4}\.)\s", stripped) and indent >= 3:
+        elif re.match(r"^(\([a-z]{1,4}\)|[a-z]{1,4}\.|\d+\.\d+)\s", stripped) and indent >= 3:
             level = 2 if indent >= 6 else 1
-            numbered(doc, re.sub(r"^(\([a-z]{1,4}\)|[a-z]{1,4}\.)\s+", "", stripped), level)
+            numbered(doc, re.sub(r"^(\([a-z]{1,4}\)|[a-z]{1,4}\.|\d+\.\d+)\s+", "", stripped), level)
             blank(doc)
         else:
             add_runs(fmt(doc.add_paragraph()), stripped)
@@ -446,7 +456,7 @@ def main():
     meta, lines = parse(a.input)
     doc = Document()
     setup_styles(doc)
-    setup_numbering(doc)
+    setup_numbering(doc, meta.get("sublevel", "letter"))
     front(doc, meta)
     body(doc, lines)
     back(doc, meta)

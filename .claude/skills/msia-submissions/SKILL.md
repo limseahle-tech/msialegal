@@ -1,6 +1,6 @@
 ---
 name: msia-submissions
-description: "Use when Caroline asks to draft, restructure or review a Malaysian court Written Submission (main submission, in support of or in opposing an Enclosure) or a Submission in Reply. Runs a staged workflow (case intake, case map, issue matrix, outline, draft, self-review) and writes in Caroline's house style: Lum Kok Kiong & Co layout, CRUX-led structure, E-number pinpoints, bold-italic-underlined authorities, Arial 12 / 1.5 / auto-numbered Word output."
+description: "Use when Caroline asks to draft, restructure or review a Malaysian court Written Submission (main submission, in support of or in opposing an Enclosure) or a Submission in Reply, in English or Bahasa Malaysia (Hujahan Bertulis / Hujahan Balas). Runs a staged workflow (case intake, case map, issue matrix, outline, draft, self-review) and writes in Caroline's house style: Lum Kok Kiong & Co layout, CRUX-led structure, E-number pinpoints, bold-italic-underlined authorities, Arial 12 / 1.5 / auto-numbered Word output. Includes playbooks for summary judgment, transfer/consolidation, arbitration stay, interim injunction, setting aside BN/CP and stay of bankruptcy proceedings."
 ---
 
 # Malaysian Written Submissions and Submissions in Reply
@@ -14,7 +14,14 @@ This skill drafts and reviews interlocutory and trial submissions for the Malays
 | **Reply – applicant** | reply "in further support of Enclosure X" | `references/structure-reply.md` |
 | **Reply – respondent** | reply "in further opposing Enclosure X" | `references/structure-reply.md` |
 
-Always also read `references/style-and-phrasing.md` before writing a sentence, and `references/review-checklist.md` before delivering.
+Always also read:
+
+- `references/style-and-phrasing.md` before writing a sentence;
+- `references/application-playbooks.md` for the order of argument for the application type (summary judgment, transfer/consolidation, arbitration stay, interim injunction, setting aside BN/CP, stay of bankruptcy proceedings);
+- `references/bahasa-malaysia.md` when the submission is in Malay, or is in English in proceedings conducted in Malay;
+- `references/review-checklist.md` before delivering.
+
+**Language:** match the language of the proceedings and of Caroline's instructions. If the court's language is Malay and the submission is in English, open with "*Dengan Izin Mahkamah yang Mulia ini,* / Kami memohon kebenaran untuk berhujah dalam Bahasa Inggeris."
 
 ## Hard rules (Caroline's standing instructions — these override any sample)
 
@@ -38,7 +45,8 @@ Read every primary document in full (never summaries): the Notice of Application
 - Large PDFs: `pdftotext -layout -f N -l N file.pdf -` page by page so you can map paragraph → PDF page for E-cites.
 - .docx: `pandoc --track-changes=all file.docx -t markdown`.
 - Record each document's **Enclosure number**, date, deponent and the short-form defined term. If an Enclosure number cannot be confirmed, use `[Enclosure ●]` and list it in the delivery note. Never guess.
-- Record each authority's **Tab number and E-page** in the relevant BOA.
+- Record each authority's **Tab number and the E-page of each passage to be quoted** in the relevant BOA (not the first page of the case). If the BOA is not yet compiled, use highlighted placeholders (`[Tab ==_== of PBOA, E==_/_==]`) and hand over to the `compile-bundle-of-authorities` skill.
+- Record what happened at each hearing and case management **from the court minutes or e-filing record**, not from memory or correspondence. Anything unconfirmed is highlighted and flagged.
 
 ### Stage 2 – Case map
 
@@ -50,6 +58,7 @@ Produce (internally, or in chat if Caroline asks) a case map:
 4. **Salient facts** — each with its E-cite; flag admissions and "not disputed" facts by the other side (these become CRUX ammunition).
 5. **The other side's grounds** — each ground with its paragraph and E-cite in their affidavit or submissions.
 6. **New points in their submissions not found in their affidavits** — candidates for a Preliminary Objection (statement from the bar).
+7. **For a reply: how they framed their case** — their headings, or a numbered list of "issues" / "triable issues". This decides the reply format (rebuttal by heading, or issue-list) in `structure-reply.md`. Note whether their submissions have paragraph numbers you can cite.
 
 ### Stage 3 – Issue matrix and outline
 
@@ -84,11 +93,12 @@ Run every item in `references/review-checklist.md`. Fix what you can; list what 
 python3 scripts/build_submission.py draft.md -o "Pf Reply Submissions - E16 - v1.docx"
 ```
 
-Input format is documented at the top of the script and in `assets/example-input.md`. Inline markup: `**bold**`, `*italic*`, `__underline__`, `[[Case Name [2016] 5 MLJ 417 (FC)]]` → bold + italic + underline, `^st^` → superscript.
+Input format is documented at the top of the script and in `assets/example-input.md`. Inline markup: `**bold**`, `*italic*`, `__underline__`, `[[Case Name [2016] 5 MLJ 417 (FC)]]` → bold + italic + underline, `^st^` → superscript, `==XX==` → yellow highlight (placeholders). Front matter `opening:` sets the Malay opening lines; `sublevel: decimal` gives 1. → 1.1 → (a) numbering.
 
 ## Related skills
 
 - `lexis-my-research` — find and verify authorities (generic legal queries only).
+- `compile-bundle-of-authorities` — build the PBOA/DBOA and fill in Tab/E-page placeholders.
 - `malaysian-legislation-library` — statute text; always state the version date.
 - `legal-pleading-fact-check` — check figures and facts against exhibits.
 - `avoid-ai-markers` — final pass on wording.

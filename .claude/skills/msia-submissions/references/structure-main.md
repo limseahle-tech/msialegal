@@ -10,8 +10,10 @@ Derived from Caroline's filed samples (Plaintiff's WS opposing a transfer/consol
    - Division, e.g. `(BAHAGIAN DAGANG)` when applicable
    - `GUAMAN SIVIL NO.: WA-22IP-21-02/2026` — bold, underlined
 2. `ANTARA` → plaintiff(s) table (name, company/IC no. in brackets, role `...PLAINTIF` / `...PLAINTIF-PLAINTIF`) → `DAN` → defendants table (numbered 1., 2., … role `...DEFENDAN` / `...DEFENDAN-DEFENDAN`).
-3. Boxed title: `PLAINTIFF'S WRITTEN SUBMISSIONS` (bold) with italic subtitle `(in support of Enclosure 14)` / `(in opposing Enclosure 16)`. Short subtitle only.
-4. Solicitors block: our firm (name, address, `[Ref.: …]`) and, for an opposing party, theirs side by side.
+   Bankruptcy matters: `DALAM PERKARA KEBANKRAPAN NO.: …`, parties `…PEMIUTANG PENGHAKIMAN` / `…PENGHUTANG PENGHAKIMAN`, often preceded by "Perkara mengenai …" recitals copied from the BN.
+3. Boxed title: `PLAINTIFF'S WRITTEN SUBMISSIONS` (bold) with italic subtitle `(in support of Enclosure 14)` / `(in opposing Enclosure 16)`. Short subtitle only. ("(to support Enclosure 33)" appears in older drafts. Use "in support of".)
+4. Solicitors block: both firms side by side, in the order the parties appear in the title (plaintiff/creditor left). Firm names may be **SMALL CAPS bold** (later samples) or bold (earlier samples). Keep one style per document.
+5. Proceedings in Bahasa Malaysia: see `bahasa-malaysia.md` for the opening "Dengan Izin Mahkamah yang Mulia ini," and the language request.
 5. Title repeated in the body, bold underlined, italic subtitle beneath, then: `May it please this Honourable Court,`
 6. Long submissions (roughly 25+ pages, e.g. injunctions): insert a Table of Contents after the front matter and use lettered sections (A., B., C1., C2., E1.…).
 
@@ -25,6 +27,16 @@ Top-level headings: **<u>BOLD UNDERLINED CAPS</u>**, optionally lettered (`A. IN
 2. "For ease of reference:-" → (a) the 1st Defendant is hereinafter referred to as "**D1**"; … (f) D1 to D5 collectively referred to as "**the Defendants**"; (g) defined terms adopted from the SOC/affidavits (with the Malay equivalent in italics where the pleadings are in Malay); (h) the BOA definition:
    > the Plaintiff's Bundle of Authorities filed together herewith is hereinafter referred to as "**PBOA**" **[Enclosure __]**. References will be made based on the respective Enclosure numbers and the corresponding page numbers of each Enclosure. For instance, "E1/2" is page 2 of Enclosure 1 (PDF pagination number).
 3. "We refer to the following cause papers: -" with underlined bold group labels (**<u>Pleadings</u>**, **<u>Enclosure 16</u>**), each item: document, date, **[Enclosure X]**, ("**short form**").
+
+For application-specific orders of argument (summary judgment, transfer/consolidation, arbitration stay, interim injunction, setting aside a BN/CP, stay of bankruptcy proceedings), see `application-playbooks.md`. It overrides the generic order below where they differ. For example, summary judgment puts the LAW before the CRUX.
+
+### Common building blocks
+
+- **Background facts:** one dated event per numbered paragraph ("On 7.10.2025, JC filed …"), each with its E-cite. For substantive claims, group the facts under bold-italic sub-heads named after each cause of action.
+- **"In essence" opener:** before a run of ground-by-ground sub-headings, list the grounds first: "In essence, the JD's case here is that the said BN was defective … based on the following grounds:-" (13.1 *First* … 13.4 *Fourth*, each with its affidavit pinpoint). Then give each ground its own bold-italic proposition heading.
+- **Statutory framework:** where several provisions work together: "We submit that four statutory planks frame the [Application]:-" then 10.1 *Firstly* … (builder: `sublevel: decimal`).
+- **Annexures to the submissions:** schedules of marks, screenshots with the offending part circled in red, comparison charts. Refer to them as **Annexure "A"** and attach them after the signature page. Once the submissions are filed, cite them by E-page in the reply.
+- **Figures:** a short two-column table (YEAR | AMOUNT (RM)) with the exhibit pinpoint in italics on the line below. Totals in the argument must reconcile with the table.
 
 ### Variant A – Applicant (in support)
 
